@@ -27,13 +27,11 @@ func handleDir(writer http.ResponseWriter, request *http.Request) {
 
 	if err != nil { 
 		fmt.Printf( "err")
-//		os.Exit(1) 
 	} 
 	defer d.Close() 
 	fi, err := d.Readdir(-1) 
 	if err != nil {
 		fmt.Printf( "err")
-//		os.Exit(1) 
 	} 
 	
 	a:= make([]string, len(fi))
@@ -44,7 +42,6 @@ func handleDir(writer http.ResponseWriter, request *http.Request) {
 			N+=1
 		}
 	}
-//    fmt.Printf("GET: id=%s\n", id)
 	json.NewEncoder(writer).Encode(a)
 }
 
@@ -62,13 +59,11 @@ func handleFile(writer http.ResponseWriter, request *http.Request) {
 	d, err := os.Open(dirname) 
 	if err != nil { 
 		fmt.Printf( "err")
-//		os.Exit(1) 
 	} 
 	defer d.Close() 
 	fi, err := d.Readdir(-1) 
 	if err != nil {
 		fmt.Printf( "err")
-//		os.Exit(1) 
 	} 
 	a:= make([]string, len(fi))
 	N := 0
@@ -78,7 +73,6 @@ func handleFile(writer http.ResponseWriter, request *http.Request) {
 			N+=1
 		}
 	}
-    fmt.Printf("GET: id=%s\n", id)
 	json.NewEncoder(writer).Encode(a)
 }
 
