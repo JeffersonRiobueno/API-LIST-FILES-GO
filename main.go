@@ -105,9 +105,10 @@ func handleDon(writer http.ResponseWriter, request *http.Request) {
 	defer resp.Body.Close()
 
 	writer.Header().Set("Content-Disposition", "attachment; filename=log.txt")
-	writer.Header().Set("Content-Type", request.Header.Get("Content-Type"))
-	writer.Header().Set("Content-Length", request.Header.Get("Content-Length"))
 	writer.Header().Set("Access-Control-Allow-Origin", "*")
+	if err != nil {
+		fmt.Println(err)
+	}
 	io.Copy(writer, resp.Body)
 }
 
