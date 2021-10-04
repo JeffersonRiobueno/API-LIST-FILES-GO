@@ -2,9 +2,15 @@
 Esta api permite delvolver los directorios y archivos de una ubicación en especifico
 
 Para generar binario es windows ejecutar: 
+
 `GOOS=windows go build -o programa.exe main.go`
 
+Para que no se abra la terminal
+
+`GOOS=windows go build -ldflags "-H windowsgui" -o programa.exe main.go`
+
 Generar binario en linux:
+
 `go build main.go `
 
 Correr desde la terminal
